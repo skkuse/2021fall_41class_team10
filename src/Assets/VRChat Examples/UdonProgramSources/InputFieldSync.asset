@@ -278,7 +278,7 @@ MonoBehaviour:
       UI is changed, check that it''s different than the variable, then become owner
       and update it","layer":0,"elementTypeColor":{"r":0.0,"g":0.0,"b":0.0,"a":0.0}}'
   viewTransform:
-    position: {x: 672.1734, y: 432.6688}
-    scale: 0.8695652
+    position: {x: 426, y: 167}
+    scale: 0.65751624
   version: 1.0.0
   showAssembly: 0

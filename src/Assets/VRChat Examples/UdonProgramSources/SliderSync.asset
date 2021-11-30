@@ -201,7 +201,7 @@ MonoBehaviour:
         stringValue: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|0
     - fullName: Event_Custom
       uid: 0348b9cd-402a-43cd-b830-6edf5369ee14
-      position: {x: -40, y: -460}
+      position: {x: -37.68693, y: -459.99994}
       nodeUIDs:
       - 
       flowUIDs:
@@ -319,7 +319,7 @@ MonoBehaviour:
   graphElementData:
   - type: 2
     uid: 6a0871a6-97af-462f-868e-423ad3ffbeaa
-    jsonData: '{"uid":"6a0871a6-97af-462f-868e-423ad3ffbeaa","layout":{"serializedVersion":"2","x":-440.0,"y":-530.0,"width":1384.0,"height":432.0},"containedElements":["4ae03fa2-a4e2-48b6-a2e9-950568f9c506","aebbea54-c452-4521-954a-00bb267dfeca","df9b1434-6157-4120-8f85-5d9646029b5d","da176d15-c265-46bf-87a8-8a508f1d5f6e","0348b9cd-402a-43cd-b830-6edf5369ee14","43337f82-869f-4ff7-a7c8-e25e17b441a1","837f4cb7-7911-4637-8f5d-f4e9b0cc2006","e011db3a-e941-4638-95ed-1db764289ec3","dfa92252-2496-4eef-b156-385bee9ace37","0dcc3560-73e5-453f-9f2c-17b429083a2e","13e2ac21-b327-4cce-a645-ec0db208e723","f1962a04-ab03-44bf-bf14-29bd0699fd93","066054b5-b9fc-4a58-9ebd-081b21b4aded","03da57fa-118d-4b11-8d1c-a7b34343af3a"],"title":"When
+    jsonData: '{"uid":"6a0871a6-97af-462f-868e-423ad3ffbeaa","layout":{"serializedVersion":"2","x":-445.0,"y":-529.0000610351563,"width":1404.0,"height":427.0},"containedElements":["4ae03fa2-a4e2-48b6-a2e9-950568f9c506","aebbea54-c452-4521-954a-00bb267dfeca","df9b1434-6157-4120-8f85-5d9646029b5d","da176d15-c265-46bf-87a8-8a508f1d5f6e","0348b9cd-402a-43cd-b830-6edf5369ee14","43337f82-869f-4ff7-a7c8-e25e17b441a1","837f4cb7-7911-4637-8f5d-f4e9b0cc2006","e011db3a-e941-4638-95ed-1db764289ec3","dfa92252-2496-4eef-b156-385bee9ace37","0dcc3560-73e5-453f-9f2c-17b429083a2e","13e2ac21-b327-4cce-a645-ec0db208e723","f1962a04-ab03-44bf-bf14-29bd0699fd93","066054b5-b9fc-4a58-9ebd-081b21b4aded","03da57fa-118d-4b11-8d1c-a7b34343af3a"],"title":"When
       UI is changed, check that it''s different than the variable, then become owner
       and update it","layer":0,"elementTypeColor":{"r":0.0,"g":0.0,"b":0.0,"a":0.0}}'
   - type: 2
@@ -338,7 +338,7 @@ MonoBehaviour:
     uid: 375ae574-056c-4f5d-a57b-0c9c2c87c61a
     jsonData: '{"visible":true,"layout":{"serializedVersion":"2","x":10.0,"y":20.0,"width":0.0,"height":0.0}}'
   viewTransform:
-    position: {x: 701.6493, y: 806.1245}
-    scale: 1
+    position: {x: 431, y: 438}
+    scale: 0.43232757
   version: 1.0.0
   showAssembly: 1

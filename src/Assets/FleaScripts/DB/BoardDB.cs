@@ -9,10 +9,15 @@ public class BoardDB : UdonSharpBehaviour
     const int maxProduct=100;
     int numProduct=0;
 
+    [UdonSynced]
     public string[] Title;
+    [UdonSynced]
     public string[] Owner;
+    [UdonSynced]
     public string[] Price;
+    [UdonSynced]
     public string[] Type;
+
 
     void Start()
     {
