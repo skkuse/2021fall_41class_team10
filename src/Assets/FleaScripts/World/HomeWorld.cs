@@ -36,6 +36,16 @@ public class HomeWorld : UdonSharpBehaviour
     {
         SwitchPanel(HomePanel, LoginPanel);
     }
+    public void OnClickEnterTradingRoom()
+    {
+        GameObject target = core.GetComponentInChildren<TradingRoom>().gameObject;
+        core.TeleportPlayerToObject(Networking.LocalPlayer, target);
+    }
+
+    public void UpdateUserBoard()
+    {
+
+    }
 
     void SwitchPanel(GameObject _old, GameObject _new)
     {

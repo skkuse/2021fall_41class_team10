@@ -84,4 +84,37 @@ public class FleaCore : UdonSharpBehaviour
         );
     }
 
+    // data structure
+    public string Pack(string[] strArr)
+    {
+        return string.Join(";", strArr);
+    }
+    public string[] UnPack(string str)
+    {
+        return str.Split(new string[] { ";" },
+            System.StringSplitOptions.None);
+    }
+    public int[] AddToArr(int[] old,int val)
+    {
+        int len = old.GetLength(0);
+        int[] ret = new int[len + 1];
+        old.CopyTo(ret, 0);
+        ret[len + 1] = val;
+        return ret;
+    }
+    public int[] MergeArr(int[] a, int[] b)
+    {
+        int alen = a.GetLength(0);
+        int blen = b.GetLength(0);
+        int[] ret = new int[alen + blen];
+        a.CopyTo(ret, 0);
+        b.CopyTo(ret, alen);
+        return ret;
+    }
+
+    // config
+    void Config()
+    {
+        //db.
+    }
 }

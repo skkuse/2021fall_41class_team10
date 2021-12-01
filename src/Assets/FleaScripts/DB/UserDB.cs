@@ -7,50 +7,77 @@ using VRC.Udon;
 [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class UserDB : UdonSharpBehaviour
 {
-    FleaCore fleaCore;
-    const string None ="None";
-    const int maxUser=100;
-    int numUser=0;
-    public string[] Name;
-    public string[] Type;
-    public string[] PwHash;
-    public string[] Email;
+    FleaCore core;
+    const int size = 30;
+    const string NONE = "__NULL__";
+    [UdonSynced]
+    string[] keyArr;
+    [UdonSynced]
+    string[] itemArr;
+    [UdonSynced]
+    int count;
 
     void Start()
     {
-        fleaCore = GetComponentInParent<FleaCore>();
-        if(fleaCore.IsAdmin())
+        core = GetComponentInParent<FleaCore>();
+        if(core.IsAdmin())
         {
-            Name = new string[maxUser];
-            Type = new string[maxUser];
-            PwHash = new string[maxUser];
-            Email = new string[maxUser];
+            keyArr = new string[size];
+            itemArr = new string[size];
+            for(int i=0;i<size;i++)
+            {
+                keyArr[i] = NONE;
+            }
         }
     }
-
-    public void AddUser(string name,string type, string pwhash, string email)
+    public int Add(string key, string item)
     {
-        Name[numUser] = name;
-        Type[numUser] = type;
-        PwHash[numUser] = pwhash;
-        Email[numUser] = email;
-        numUser++;
+        int idx = Find(NONE);
+        if (idx < 0)
+            return -1;
+        keyArr[idx] = key;
+        itemArr[idx] = item;
+        count++;
+
+        return idx;
     }
-
-    public bool Login(string name,string pwhash)
+    public bool Remove(int idx)
     {
-        if(PwHash[GetUID(name)] == pwhash)
-            return true;
-        return false;
+        if (idx < 0 || idx >= size)
+            return false;
+        if (keyArr[idx] == NONE)
+            return false;
+        keyArr[idx] = NONE;
+        count--;
+        return true;
     }
-
-    public int GetUID(string name)
+    public int Count()
     {
-        for(int i=0;i<maxUser;i++)
+        return count;
+    }
+    public int Find(string key)
+    {
+        for (int i = 0; i < Count(); i++)
         {
-            if(Name[i] == name)
+            if (keyArr[i] == key)
+            {
                 return i;
+            }
         }
         return -1;
+    }
+    public int[] FindAll(string item, int dim=0, int begin=0, int end=0)
+    {
+        // TODO
+        return new int[10];
+    }
+    public string At(int idx)
+    {
+        return itemArr[idx];
+    }
+
+    public void Sync()
+    {
+        core.Sync(this);
     }
 }
