@@ -8,7 +8,8 @@ using VRC.Udon.Common.Interfaces;
 [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class FleaCore : UdonSharpBehaviour
 {
-    FleabDB db;
+    public FleabDB db;
+    public int uid;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class FleaCore : UdonSharpBehaviour
         {
             Networking.SetOwner(Networking.LocalPlayer, gameObject);
         }
+        db = GetComponentInChildren<FleabDB>();
     }
     public override void OnPlayerLeft(VRCPlayerApi player)
     {
@@ -31,7 +33,6 @@ public class FleaCore : UdonSharpBehaviour
         {
         }
     }
-
 
     // add all helper functions here
 

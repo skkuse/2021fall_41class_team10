@@ -13,20 +13,27 @@ public class HomeWorld : UdonSharpBehaviour
     public GameObject HomePanel;
     void Start()
     {
-        core = GetComponent<FleaCore>();
+        core = GetComponentInParent<FleaCore>();
         RegisterPanel.SetActive(false);
         LoginPanel.SetActive(false);
         HomePanel.SetActive(true);
     }
 
+    public void OnClickLogin()
+    {
+        SwitchPanel(LoginPanel, HomePanel);
+    }
+    public void OnClickRegister()
+    {
+        SwitchPanel(RegisterPanel, HomePanel);
+    }
+    // home panel events
     public void OnClickEnterRegister()
     {
-        core.Log("click enter register");
         SwitchPanel(HomePanel, RegisterPanel);
     }
     public void OnClickEnterLogin()
     {
-        core.Log("click enter login");
         SwitchPanel(HomePanel, LoginPanel);
     }
 
