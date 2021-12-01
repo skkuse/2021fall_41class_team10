@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a086a1f2c493ff48bf8686bdf9fb578, type: 3}
   m_Name: UdonSharpSettings
   m_EditorClassIdentifier: 
-  autoCompileOnModify: 0
+  autoCompileOnModify: 1
   compileAllScripts: 1
   waitForFocus: 0
   disableUploadCompile: 0
@@ -23,5 +23,5 @@ MonoBehaviour:
   includeInlineCode: 1
   listenForVRCExceptions: 1
   shouldForceCompile: 0
-  watcherMode: 1
+  watcherMode: 0
   logWatcherMatchStrings: []

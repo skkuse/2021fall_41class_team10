@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: DropdownSync
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: b9fcd3ceb69b8ff47ba2cf073cc5950e,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 235d4d3be6ee8674988324dc779901a1,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export uiDropdown\r\n    .sync dropdownValue,
     none\r\n    \r\n    __Boolean_0: %SystemBoolean, null\r\n    __Int32_0: %SystemInt32,

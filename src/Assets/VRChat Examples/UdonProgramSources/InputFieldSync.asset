@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f11136daadff0b44ac2278a314682ab, type: 3}
   m_Name: InputFieldSync
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: e576d9d57cfd71846b93fca057a2b89e,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: edc53c989e413d0428f83445e79928f6,
     type: 2}
   udonAssembly: ".data_start\r\n\r\n    .export uiInputField\r\n    .sync fieldValue,
     none\r\n    \r\n    __Boolean_0: %SystemBoolean, null\r\n    __String_0: %SystemString,
@@ -75,7 +75,7 @@ MonoBehaviour:
           PublicKeyToken=b77a5c561934e089|True
     - fullName: Variable_UnityEngineUIInputField
       uid: f6eab4ad-3f34-49a9-8ac8-19d9b59d1d13
-      position: {x: 142.4, y: -333.5499}
+      position: {x: 122.399994, y: -388.5499}
       nodeUIDs:
       - 
       - 
@@ -98,7 +98,7 @@ MonoBehaviour:
         stringValue: 
     - fullName: Variable_SystemString
       uid: ea620532-514e-483b-8dc0-9d9ae3a645d2
-      position: {x: -444, y: -828}
+      position: {x: -464, y: -883}
       nodeUIDs:
       - 
       - 
@@ -263,8 +263,8 @@ MonoBehaviour:
     jsonData: '{"uid":"6cae173a-248b-4544-808f-bec85c802886","layout":{"serializedVersion":"2","x":550.0,"y":-705.0,"width":450.0,"height":308.0},"containedElements":["c5020263-8ec9-40ee-8935-86e91657ae20","5bc66cb4-befa-4100-a7a2-fd6498d7cd36","3e53df3f-8db9-465d-b828-687dc1ee22e0"],"title":"Approve
       Ownership Transfers","layer":0,"elementTypeColor":{"r":0.0,"g":0.0,"b":0.0,"a":0.0}}'
   - type: 5
-    uid: e027c6ca-385b-4a09-b984-66d2f4f38c3e
-    jsonData: '{"visible":true,"layout":{"serializedVersion":"2","x":13.0,"y":26.0,"width":223.0,"height":194.0}}'
+    uid: ff9a7f3f-3770-4e33-b830-da25c70ee840
+    jsonData: '{"visible":true,"layout":{"serializedVersion":"2","x":521.0,"y":177.0,"width":223.0,"height":194.0}}'
   - type: 4
     uid: 375ae574-056c-4f5d-a57b-0c9c2c87c61a
     jsonData: '{"visible":true,"layout":{"serializedVersion":"2","x":10.0,"y":20.0,"width":0.0,"height":0.0}}'
@@ -278,7 +278,7 @@ MonoBehaviour:
       UI is changed, check that it''s different than the variable, then become owner
       and update it","layer":0,"elementTypeColor":{"r":0.0,"g":0.0,"b":0.0,"a":0.0}}'
   viewTransform:
-    position: {x: 426, y: 167}
-    scale: 0.65751624
+    position: {x: 1068.6666, y: 376.66666}
+    scale: 0.57175326
   version: 1.0.0
   showAssembly: 0
