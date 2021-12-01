@@ -19,11 +19,22 @@ public class HomeWorld : UdonSharpBehaviour
         HomePanel.SetActive(true);
     }
 
-    public void OnClickRegister()
+    public void OnClickEnterRegister()
     {
+        core.Log("click enter register");
+        SwitchPanel(HomePanel, RegisterPanel);
     }
-    public void OnClickLogin()
+    public void OnClickEnterLogin()
     {
+        core.Log("click enter login");
+        SwitchPanel(HomePanel, LoginPanel);
+    }
+
+    void SwitchPanel(GameObject _old, GameObject _new)
+    {
+        _new.transform.position = _old.transform.position;
+        _new.SetActive(true);
+        _old.SetActive(false);
     }
 
 }
