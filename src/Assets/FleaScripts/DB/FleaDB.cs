@@ -8,11 +8,11 @@ using VRC.Udon.Common;
 public class FleabDB : UdonSharpBehaviour
 {
     FleaCore core;
-    UserDB[] userDB;
-    ProductDB[] productDB;
+    public UserDB userDB;
+    public ProductDB productDB;
     void start(){
         core = GetComponentInParent<FleaCore>();
-        userDB = GetComponentsInChildren<UserDB>();
-        productDB = GetComponentsInChildren<ProductDB>();
+        userDB = GetComponentInChildren<UserDB>();
+        productDB = GetComponentInChildren<ProductDB>();
     }
 }

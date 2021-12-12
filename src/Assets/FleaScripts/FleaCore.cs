@@ -116,5 +116,15 @@ public class FleaCore : UdonSharpBehaviour
     void Config()
     {
         //db.
+        for(int i=0;i<100;i++)
+        {
+            /*
+            db.userDB.Add(i.ToString(), Pack(new string[]
+            {
+                (i*i).ToString(),
+                (i*2).ToString(),
+            }));
+            */
+        }
     }
 }
