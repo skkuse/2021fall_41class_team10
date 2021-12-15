@@ -124,7 +124,7 @@ MonoBehaviour:
     nodes:
     - fullName: Variable_VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer
       uid: 889e4a87-efa9-4fe8-898c-d2cb611eb9b1
-      position: {x: 0, y: 0}
+      position: {x: -350, y: -1080}
       nodeUIDs:
       - 
       - 
@@ -822,7 +822,7 @@ MonoBehaviour:
       URL Field Changed, Become Owner and update synced URL","layer":0,"elementTypeColor":{"r":0.0,"g":0.0,"b":0.0,"a":0.0}}'
   - type: 2
     uid: 44e7d719-6d87-4e38-bf02-b286926f0b4b
-    jsonData: '{"uid":"44e7d719-6d87-4e38-bf02-b286926f0b4b","layout":{"serializedVersion":"2","x":324.0000915527344,"y":867.0000610351563,"width":654.0,"height":323.0},"containedElements":["3a520908-55d8-42a8-91ac-63c691cbfd8e","9176fb46-48a4-443e-93a1-ee5d15525fe6","2336b941-1423-43ad-92cb-dda0b8647bc3","01358302-1be5-4815-9ae9-4f7c1280cf41","e04f3b68-a27a-4199-a641-952549582a9b","8856c4bf-2b2c-40e1-87ed-75c60f5e8976","fdcc48f9-0685-4888-9d26-35387a2a7b98","4333c246-d46f-410c-982a-8e9fff66b112","8e534117-89e9-48e0-82d0-9488dbeeb41a","b228fa35-65f6-4b91-8603-723a551071be","bd65c239-19ca-492b-aa7a-0816d911cb91","e01ec802-8034-4c81-8343-d9a37c4a3a2b"],"title":"Play
+    jsonData: '{"uid":"44e7d719-6d87-4e38-bf02-b286926f0b4b","layout":{"serializedVersion":"2","x":325.0000305175781,"y":827.0000610351563,"width":644.0,"height":361.0},"containedElements":["3a520908-55d8-42a8-91ac-63c691cbfd8e","9176fb46-48a4-443e-93a1-ee5d15525fe6","2336b941-1423-43ad-92cb-dda0b8647bc3","01358302-1be5-4815-9ae9-4f7c1280cf41","e04f3b68-a27a-4199-a641-952549582a9b","8856c4bf-2b2c-40e1-87ed-75c60f5e8976","fdcc48f9-0685-4888-9d26-35387a2a7b98","4333c246-d46f-410c-982a-8e9fff66b112","8e534117-89e9-48e0-82d0-9488dbeeb41a","b228fa35-65f6-4b91-8603-723a551071be","bd65c239-19ca-492b-aa7a-0816d911cb91","e01ec802-8034-4c81-8343-d9a37c4a3a2b"],"title":"Play
       URL when it Changes","layer":0,"elementTypeColor":{"r":0.0,"g":0.0,"b":0.0,"a":0.0}}'
   - type: 2
     uid: 751bae30-b3bb-44b9-8968-dfd1acf282df
@@ -862,7 +862,7 @@ MonoBehaviour:
     jsonData: '{"uid":"c4324c30-684e-4557-8811-81c06b24e746","layout":{"serializedVersion":"2","x":1812.0001220703125,"y":908.0000610351563,"width":486.0,"height":312.0},"containedElements":["8f46e525-153b-4b02-a136-8d7475790e43","8e01d6cb-f182-4f7b-955a-715079e2a392","2d7db82f-8037-4bf6-86ca-cc25d3b23971"],"title":"Enable
       / Disable Guest Control","layer":0,"elementTypeColor":{"r":0.0,"g":0.0,"b":0.0,"a":0.0}}'
   viewTransform:
-    position: {x: 16.666672, y: -190}
-    scale: 1
+    position: {x: 155, y: 33}
+    scale: 0.8695652
   version: 1.0.0
   showAssembly: 0

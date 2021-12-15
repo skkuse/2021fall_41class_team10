@@ -8,20 +8,43 @@ using VRC.Udon.Common.Interfaces;
 [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class FleaCore : UdonSharpBehaviour
 {
-    public FleabDB db;
-    public int uid;
-
+    public string NONE = "__NONE__";
+    public FleaDB db;
+    public UICore ui;
+    public PortalDialog[] homePortals;
+    public MarketRoom[] markets;
+    public HomeWorld home;
+    public TradingRoom tradingRoom;
     void Start()
     {
-        if(IsAdmin())
+        db = GetComponentInChildren<FleaDB>();
+        ui = GetComponentInChildren<UICore>();
+        tradingRoom = GetComponentInChildren<TradingRoom>();
+        home = gameObject.GetComponentInChildren<HomeWorld>();
+        markets = gameObject.GetComponentsInChildren<MarketRoom>();
+        homePortals = home.gameObject.GetComponentsInChildren<PortalDialog>();
+        db.Init();
+
+        for(int i=0;i<homePortals.Length && i< markets.Length;i++)
+        {
+            string type = db.PTYPES[i % 6];
+            homePortals[i].SetPortal(type, markets[i].tp);
+            homePortals[i].SetEvent(markets[i], "Sync");
+            markets[i].type = type;
+        }
+
+
+        if(IsMaster())
         {
             Networking.SetOwner(Networking.LocalPlayer, gameObject);
+            Config();
         }
-        db = GetComponentInChildren<FleabDB>();
     }
+
+
     public override void OnPlayerLeft(VRCPlayerApi player)
     {
-        if(IsAdmin())
+        if(IsMaster())
         {
             Log("bye player" );
         }
@@ -29,8 +52,15 @@ public class FleaCore : UdonSharpBehaviour
 
     public override void OnPlayerJoined(VRCPlayerApi player)
     {
-        if(IsAdmin())
+        if(IsMaster())
         {
+            Log("new user sycn...");
+            Sync(db);
+            Sync(db.user);
+            Sync(db.post);
+            Sync(db.review);
+            Sync(db.cart);
+            Sync(db.category);
         }
     }
 
@@ -40,6 +70,10 @@ public class FleaCore : UdonSharpBehaviour
     {
         Networking.SetOwner(Networking.LocalPlayer,ub.gameObject);
         ub.RequestSerialization();
+    }
+    public void LoadSync(UdonSharpBehaviour ub)
+    {
+        ub.SendCustomNetworkEvent(NetworkEventTarget.Owner, "RequestSerialization");
     }
 
     public void Log(string msg){
@@ -60,7 +94,7 @@ public class FleaCore : UdonSharpBehaviour
         return Networking.LocalPlayer.playerId;
     }
 
-    public bool IsAdmin()
+    public bool IsMaster()
     {
         return Networking.IsMaster;
     }
@@ -111,20 +145,84 @@ public class FleaCore : UdonSharpBehaviour
         b.CopyTo(ret, alen);
         return ret;
     }
+    public string Hash(string str)
+    {
+        return str;
+    }
 
     // config
     void Config()
     {
-        //db.
-        for(int i=0;i<100;i++)
+        db.UrlInit();
+        db.AddUser("admin", "1234", "2017312097", db.TADMIN,
+            NONE, NONE, NONE);
+
+        int userNum = 200;
+
+        for (int i=0;i<userNum;i++)
         {
-            /*
-            db.userDB.Add(i.ToString(), Pack(new string[]
+            string name = $"user{i}";
+            string pw = $"pw{i}";
+            string sid = $"{(2010+(i*i)%15)*1000000 + (i*i*i)%10000 + 2413 + i*i + i}";
+            db.AddUser(name, pw, sid, db.TUSER,
+                NONE,
+                $"user{i}@skku.edu",
+                NONE
+                );
+        }
+
+
+        // post
+        int[] posts = new int[50];
+        for(int i=0;i<posts.Length;i++)
+        {
+            string uid = $"user{(i * i) % 13}";
+            string title = sampleTitles[(i*i+3)%sampleTitles.Length];
+            string contents = sampleContents[(i*i*i+3)%sampleContents.Length];
+            posts[i] = db.AddPost(uid,
+                $"{title}",
+                $"{contents}", 0,
+                $"{((i*i)%100)*3200}",
+                db.PTYPES[(i*i)%6]);
+
+            // add review for contents
+            int cnt = (i % 3) * ((i * i + 5) % 8);
+            while (--cnt > 0)
             {
-                (i*i).ToString(),
-                (i*2).ToString(),
-            }));
-            */
+                string buyer = $"user{((i * cnt) % 17 + 32)%userNum}";
+                string score = $"{(i * cnt + 3) % 5}";
+                string review = sampleContents[(i*cnt)%sampleContents.Length];
+                db.AddReview(posts[i].ToString(), buyer, uid, review, score);
+            }
+            // add to cart
+            cnt = (i % 6) * ((i * i + 2) % 9);
+            while (--cnt > 0)
+            {
+                string buyer = $"user{((i * i * cnt) % 13 + 23)%userNum}";
+                db.AddCart(
+                    buyer, uid, posts[i].ToString());
+            }
         }
     }
+    string[] sampleTitles = new string[] { 
+        "Only today!!",
+        "Cheap!!",
+        "IPHONE13",
+        "IPHONE11",
+        "MACOBOOK",
+        "GOOD NOTE",
+        "SHOES",
+        "TICKET",
+        "FREE",
+        "HELLO",
+        "SAMPLE",
+    };
+    string[] sampleContents = new string[] { 
+        "It is cheap",
+        "as 7 minutes after midnight. The dog was lying on the ",
+        "ork sticking out of the dog. The point",
+        " is Christopher John Francis Boone. I know all the countries ",
+        "ant ‘happy’, like when I’m reading about the Apollo space missions, or when I am still awake at 3 am or 4 am ",
+        "now all the countries of the world and their capital cities and every prime numb",
+    };
 }
